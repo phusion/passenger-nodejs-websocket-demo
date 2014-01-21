@@ -22,21 +22,15 @@ function lookupFile(req) {
 	} else {
 		name = req.url;
 	}
-	try {
-		fs.statSync(__dirname + name);
-		return __dirname + name;
-	} catch (ex) {
-		try {
-			fs.statSync(__dirname + '/public' + name);
-			return __dirname + '/public' + name;
-		} catch (ex) {
-			return undefined;
-		}
-	}
+	return __dirname + '/public' + name;
 }
 
 /**
  * The handler function for the HTTP server. It just serves static files.
+ *
+ * Note that this entire handler function does not get called when the demo app
+ * is run under Phusion Passenger. This is because Phusion Passenger takes care
+ * of serving all static assets through a real web server (Nginx or Apache).
  */
 function handler(req, res) {
 	var filename = lookupFile(req);
