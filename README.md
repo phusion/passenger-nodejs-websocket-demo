@@ -43,6 +43,28 @@ Add `passenger-nodejs-websocket.demo` to your `/etc/hosts`:
 
 Then restart Nginx, and access the demo application at http://passenger-nodejs-websocket.demo:3000/
 
+### Running the demo in Passenger for Apache
+
+Apache itself doesn't work very well with WebSockets, so running in Apache is not recommended. Having said that, Socket.io gracefully falls back to polling when run on Apache, so the demo still works.
+
+Create a virtual host in your Apache configuration file:
+
+    # Comment out if you already have a "Listen 3000" directive somewhere.
+    Listen 3000
+    # Comment out when using Apache >= 2.4.
+    NameVirtualHost *:3000
+
+    <VirtualHost *:3000>
+        ServerName passenger-nodejs-websocket.demo
+        DocumentRoot /path-to/passenger-nodejs-websocket-demo/public
+    }
+
+Add `passenger-nodejs-websocket.demo` to your `/etc/hosts`:
+
+    echo 127.0.0.1 passenger-nodejs-websocket.demo | sudo tee -a /etc/hosts
+
+Then restart Apache, and access the demo application at http://passenger-nodejs-websocket.demo:3000/
+
 ### Running the demo in Node.js without Passenger
 
 Run:
