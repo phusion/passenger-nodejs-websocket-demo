@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Phusion Passenger: Node.js WebSocket demo</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="http://github.com/phusion/passenger-nodejs-websocket-demo">View on GitHub</a>
+
+          <h1 id="project_title">Phusion Passenger</h1>
+          <h2 id="project_tagline">Node.js WebSocket demo</h2>
+
+          <section id="downloads">
+            <a class="zip_download_link" href="#">Download this project as a .zip file</a>
+            <a class="tar_download_link" href="#">Download this project as a tar.gz file</a>
+          </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>Just a simple timestamp server</h1>
+        <div style="text-align: center"><a href="https://www.phusionpassenger.com"><img src="http://blog.phusion.nl/wp-content/uploads/2014/01/Passenger_chair_256x256.png" width="256" height="256" alt="Phusion Passenger"></a></div>
+        <p><a href="https://www.phusionpassenger.com/">Phusion Passenger</a> supports all major modern web technologies, such as WebSockets, entirely out of the box. You don't have to do anything: WebSocket support just works.</p>
+        <p>In this demo, the server sends the current timestamp over a WebSocket once per second, using the awesome <a href="http://socket.io/">Socket.io library</a>. You can see the received timestamps below.</p>
+        <ul id="times" class="empty">
+          <li>Nothing received from the server yet...</li>
+        </ul>
+
+        <h1>About Phusion Passenger</h1>
+        <p><a href="https://www.phusionpassenger.com/">Phusion Passenger</a> is a web server and application server, designed to be fast, robust and lightweight. It takes a lot of complexity out of deploying web apps, adds powerful enterprise-grade features that are useful in production, and makes administration much easier and less complex. Phusion Passenger supports Ruby, Python, Node.js and Meteor, and is being used by high-profile companies such as <strong>Apple, Pixar, New York Times, AirBnB, Juniper</strong> etc as well as <a href="http://trends.builtwith.com/Web-Server/Phusion-Passenger">over 350.000 websites</a>.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">This demo is brought to you by <a href="http://www.phusion.nl">Phusion</a></p>
+        <p class="copyright">Slate theme maintained by <a href="https://github.com/jsncostello">Jason Costello</a></p>
+      </footer>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      var host = location.protocol + '//' + location.host;
+      var socket = io.connect(host);
+      socket.on('news', function (data) {
+        var times = document.getElementById('times');
+        var children, i;
+
+        // Initialize empty list.
+        if (times.className == 'empty') {
+          times.className = '';
+          times.innerHTML = '';
+        }
+
+        // Add timestamp.
+        var li = document.createElement('li');
+        li.innerHTML = data.time;
+        times.appendChild(li);
+
+        // Ensure that the list contains no more than 5 items.
+        var children = times.children;
+        while (children.length > 5) {
+          times.removeChild(children[0]);
+        }
+      });
+    </script>
+
+  </body>
+</html>
