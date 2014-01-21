@@ -6,6 +6,8 @@ This application demonstrates WebSocket support in [the Phusion Passenger applic
 
 ## Getting started
 
+### Preparations
+
  1. [Install Phusion Passenger](https://www.phusionpassenger.com/) 4.0.35 or later.
  2. Clone this repository:
 
@@ -16,13 +18,30 @@ This application demonstrates WebSocket support in [the Phusion Passenger applic
 
         npm install socket.io
 
-### Running the demo in Passenger
+### Running the demo in Passenger Standalone
 
-Run Phusion Passenger in its Standalone mode:
+Run:
 
     passenger start
 
 Access the demo application at http://0.0.0.0:3000/ and see it in action.
+
+### Running the demo in Passenger for Nginx
+
+Create a virtual host in your Nginx configuration file:
+
+    server {
+        listen 3000;
+        server_name passenger-nodejs-websocket.demo;
+        root /path-to/passenger-nodejs-websocket-demo/public;
+        passenger_enabled on;
+    }
+
+Add `passenger-nodejs-websocket.demo` to your `/etc/hosts`:
+
+    echo 127.0.0.1 passenger-nodejs-websocket.demo | sudo tee -a /etc/hosts
+
+Then restart Nginx, and access the demo application at http://passenger-nodejs-websocket.demo:3000/
 
 ### Running the demo in Node.js without Passenger
 
