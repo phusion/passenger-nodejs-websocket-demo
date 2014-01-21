@@ -2,7 +2,7 @@
 
 This application demonstrates WebSocket support in [the Phusion Passenger application server for Node.js](https://www.phusionpassenger.com/), through the use of the awesome [Socket.io library](http://socket.io/). Passenger supports all major modern web technologies, such as WebSockets, entirely out of the box. You don't have to do anything: WebSocket support just works.
 
-<div style="text-align: center"><a href="https://www.phusionpassenger.com"><img src="http://blog.phusion.nl/wp-content/uploads/2014/01/Passenger_chair_256x256.png" width="256" height="256" alt="Phusion Passenger"></a></div>
+<center><a href="https://www.phusionpassenger.com"><img src="http://blog.phusion.nl/wp-content/uploads/2014/01/Passenger_chair_256x256.png" width="196" height="196" alt="Phusion Passenger"></a></center>
 
 ## Getting started
 
