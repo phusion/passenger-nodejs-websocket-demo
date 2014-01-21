@@ -16,11 +16,21 @@ This application demonstrates WebSocket support in [the Phusion Passenger applic
 
         npm install socket.io
 
- 4. Run Phusion Passenger in its Standalone mode:
+### Running the demo in Passenger
 
-        passenger start
+Run Phusion Passenger in its Standalone mode:
 
- 5. Access the demo application at http://0.0.0.0:3000/, and see it in action.
+    passenger start
+
+Access the demo application at http://0.0.0.0:3000/ and see it in action.
+
+### Running the demo in Node.js without Passenger
+
+Run:
+
+    node app.js
+
+Then access the demo application at http://0.0.0.0:3000/
 
 ## About Phusion Passenger
 
