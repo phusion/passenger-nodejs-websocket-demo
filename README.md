@@ -9,16 +9,16 @@ This application demonstrates WebSocket support in [the Phusion Passenger applic
  1. [Install Phusion Passenger](https://www.phusionpassenger.com/) 4.0.35 or later.
  2. Clone this repository:
 
-         git clone https://github.com/phusion/passenger-nodejs-websocket-demo.git
-         cd passenger-nodejs-websocket-demo
+        git clone https://github.com/phusion/passenger-nodejs-websocket-demo.git
+        cd passenger-nodejs-websocket-demo
 
  3. Install dependencies:
 
-         npm install socket.io
+        npm install socket.io
 
  4. Run Phusion Passenger in its Standalone mode:
 
-         passenger start
+        passenger start
 
  5. Access the demo application at http://0.0.0.0:3000/, and see it in action.
 
