@@ -57,7 +57,7 @@ Create a virtual host in your Apache configuration file:
     <VirtualHost *:3000>
         ServerName passenger-nodejs-websocket.demo
         DocumentRoot /path-to/passenger-nodejs-websocket-demo/public
-    }
+    </VirtualHost>
 
 Add `passenger-nodejs-websocket.demo` to your `/etc/hosts`:
 
