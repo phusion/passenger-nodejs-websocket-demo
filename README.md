@@ -4,7 +4,7 @@ This application demonstrates WebSocket support in [the Phusion Passenger applic
 
 If you like this demo, please [tweet about it](https://twitter.com/share) or [follow us on Twitter](https://twitter.com/phusion_nl).
 
-[_What is Phusion Passenger, and why should I care?_](#about)
+[_>> What is Phusion Passenger, and why should I care?_](#about)
 
 <center><img src="http://blog.phusion.nl/wp-content/uploads/2013/10/nodelogo.png" height="150" alt="Node.js"> <img src="http://blog.phusion.nl/wp-content/uploads/2012/07/Passenger_chair_256x256.jpg" width="150" height="150" alt="Phusion Passenger"></center>
 
