@@ -51,6 +51,10 @@ function handler(req, res) {
  */
 io.sockets.on('connection', function (socket) {
 	setInterval(function() {
-		socket.emit('news', { time: new Date() + '' });
+		socket.emit('news', { message: new Date() + '' });
 	}, 1000);
+
+	socket.on('message', function(data) {
+		socket.emit('news', { message: "The server received your message: \"" + data + "\"" });
+	});
 });

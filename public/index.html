@@ -34,6 +34,12 @@
         <div style="text-align: center"><a href="https://www.phusionpassenger.com"><img src="http://blog.phusion.nl/wp-content/uploads/2014/01/Passenger_chair_256x256.png" width="256" height="256" alt="Phusion Passenger"></a></div>
         <p><a href="https://www.phusionpassenger.com/">Phusion Passenger</a> supports all major modern web technologies, such as WebSockets, entirely out of the box. You don't have to do anything: WebSocket support just works.</p>
         <p>In this demo, the server sends the current timestamp over a WebSocket once per second, using the awesome <a href="http://socket.io/">Socket.io library</a>. You can see the received timestamps below.</p>
+        <form action="javascript:return false" style="padding: 0 0 20px 0">
+          <p>You can also say something to the server, and it'll reply back:</p>
+          <div>
+            <input id="message" type="text" placeholder="Your message" style="width: 100%"></input>
+          </div>
+        </form>
         <ul id="times" class="empty">
           <li>Nothing received from the server yet...</li>
         </ul>
@@ -68,7 +74,7 @@
 
         // Add timestamp.
         var li = document.createElement('li');
-        li.innerHTML = data.time;
+        li.innerHTML = data.message;
         times.appendChild(li);
 
         // Ensure that the list contains no more than 5 items.
@@ -77,6 +83,14 @@
           times.removeChild(children[0]);
         }
       });
+
+      var messageBox = document.getElementById('message');
+      messageBox.addEventListener('change', onMessageChanged);
+      messageBox.addEventListener('keyup', onMessageChanged);
+
+      function onMessageChanged() {
+        socket.emit('message', messageBox.value);
+      }
     </script>
 
   </body>
