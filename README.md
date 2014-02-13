@@ -12,7 +12,7 @@ See also: [_>> What is Phusion Passenger, and why should I care?_](#about)
 
 ### Preparations
 
- 1. [Install Phusion Passenger](https://www.phusionpassenger.com/) 4.0.35 or later.
+ 1. [Install Phusion Passenger](https://www.phusionpassenger.com/) 4.0.37 or later.
  2. Clone this repository:
 
         git clone https://github.com/phusion/passenger-nodejs-websocket-demo.git
