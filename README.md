@@ -89,7 +89,7 @@ Please enjoy Phusion Passenger, a product by [Phusion](http://www.phusion.nl/). 
 <a name="about"></a>
 ## About Phusion Passenger
 
-<a href="http://vimeo.com/phusionnl/review/84945384/73fe7432ee"><img src="http://blog.phusion.nl/wp-content/uploads/2014/01/dotjstalk.jpg" height="300"></a><br><em>5 minute intro: Making node.js deployment enjoyable (DotJS Paris 2013)</em>
+<a href="http://vimeo.com/phusionnl/review/84945384/73fe7432ee"><img src="http://blog.phusion.nl/wp-content/uploads/2014/01/dotjstalk.jpg" height="300"></a><br><em>5 minute intro: Making Node.js deployment enjoyable (DotJS Paris 2013)</em>
 
 <a href="http://vimeo.com/phusionnl/review/80475623/c16e940d1f"><img src="http://blog.phusion.nl/wp-content/uploads/2014/01/gameofthrones.jpg" height="300"></a><br><em>Phusion Passenger used in Game of Thrones Ascention</em>
 
