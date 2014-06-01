@@ -12,7 +12,7 @@ See also: [_>> What is Phusion Passenger, and why should I care?_](#about)
 
 ### Preparations
 
- 1. [Install Phusion Passenger](https://www.phusionpassenger.com/) 4.0.37 or later.
+ 1. [Install Phusion Passenger](https://www.phusionpassenger.com/) 4.0.45 or later.
  2. Clone this repository:
 
         git clone https://github.com/phusion/passenger-nodejs-websocket-demo.git
@@ -26,9 +26,11 @@ See also: [_>> What is Phusion Passenger, and why should I care?_](#about)
 
 Run:
 
-    passenger start
+    passenger start --sticky-sessions
 
 Access the demo application at http://0.0.0.0:3000/ and see it in action.
+
+Sticky sessions are required for long polling support.
 
 ### Running the demo in Passenger for Nginx
 
@@ -39,6 +41,9 @@ Create a virtual host in your Nginx configuration file:
         server_name passenger-nodejs-websocket.demo;
         root /path-to/passenger-nodejs-websocket-demo/public;
         passenger_enabled on;
+
+        # Sticky sessions are required for long polling support!
+        passenger_sticky_sessions on;
     }
 
 Add `passenger-nodejs-websocket.demo` to your `/etc/hosts`:
@@ -49,7 +54,7 @@ Then restart Nginx, and access the demo application at http://passenger-nodejs-w
 
 ### Running the demo in Passenger for Apache
 
-Apache itself doesn't work very well with WebSockets, so running in Apache is not recommended. Having said that, Socket.io gracefully falls back to polling when run on Apache, so the demo still works.
+Apache itself doesn't work very well with WebSockets, so running in Apache is not recommended. Having said that, Socket.io gracefully falls back to long polling when run on Apache, so the demo still works.
 
 Create a virtual host in your Apache configuration file:
 
@@ -61,6 +66,9 @@ Create a virtual host in your Apache configuration file:
     <VirtualHost *:3000>
         ServerName passenger-nodejs-websocket.demo
         DocumentRoot /path-to/passenger-nodejs-websocket-demo/public
+
+        # Sticky sessions are required for long polling support!
+        PassengerStickySessions on
     </VirtualHost>
 
 Add `passenger-nodejs-websocket.demo` to your `/etc/hosts`:
