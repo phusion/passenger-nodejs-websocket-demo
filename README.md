@@ -54,7 +54,7 @@ Then restart Nginx, and access the demo application at http://passenger-nodejs-w
 
 ### Running the demo in Passenger for Apache
 
-Apache itself doesn't work very well with WebSockets, so running in Apache is not recommended. Having said that, Socket.io gracefully falls back to long polling when run on Apache, so the demo still works.
+Phusion Passenger currently does not support WebSockets on Apache. Having said that, Socket.io gracefully falls back to long polling when run on Apache, so the demo still works.
 
 Create a virtual host in your Apache configuration file:
 
