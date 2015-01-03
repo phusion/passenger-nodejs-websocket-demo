@@ -20,7 +20,7 @@ See also: [_>> What is Phusion Passenger, and why should I care?_](#about)
 
  3. Install dependencies:
 
-        npm install socket.io
+        npm install
 
 ### Running the demo in Passenger Standalone
 
