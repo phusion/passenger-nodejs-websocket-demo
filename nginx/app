@@ -1,0 +1,11 @@
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+	root /vagrant/public;
+	server_name _;
+	
+	passenger_enabled on;
+	passenger_app_type node;
+	passenger_startup_file app.js;
+	passenger_sticky_sessions on;
+}
